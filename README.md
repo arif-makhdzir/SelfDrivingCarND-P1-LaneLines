@@ -35,6 +35,14 @@ Step 4: Apply region of interest (ROI)
 
 Step 5: Apply Hough line 
 
+My pipeline allows two different line drawing options at this stage:
+
+i) Draw lines according to the lane markers - short, long, single, or multiple
+
+This path execute the original algorithm of the draw_lines() function, no additional change required
+
+ii) Draw a single line on the left and right lanes
+
 SFirst, I converted the images to grayscale, then I .... 
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
