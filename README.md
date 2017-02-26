@@ -1,4 +1,3 @@
-# SelfDrivingCarND-P1-LaneLines
 #**Finding Lane Lines on the Road** 
 
 ##Writeup Template
@@ -25,11 +24,17 @@ The goals / steps of this project are the following:
 ###1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
 My pipeline consisted of 5 steps:
+
 Step 1: Turn image into grayscale channel 
+
 Step 2: Apply Gaussian blur smoothing
+
 Step 3: Apply Canny edge detection
+
 Step 4: Apply region of interest (ROI)
+
 Step 5: Apply Hough line 
+
 SFirst, I converted the images to grayscale, then I .... 
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
