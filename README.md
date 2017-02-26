@@ -16,7 +16,8 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/grayscale.jpg "Grayscale"
-
+[pipeline1]: ./pipeline_images/step1_gray.jpg "Grayscale pipeline"
+[pipeline2]: ./pipeline_images/step2_gaussian.jpg "Gaussian pipeline"
 ---
 
 ### Reflection
@@ -25,9 +26,13 @@ The goals / steps of this project are the following:
 
 My pipeline consisted of 5 steps:
 
-Step 1: Turn image into grayscale channel 
+**Step 1: Turn image into grayscale channel**
 
-Step 2: Apply Gaussian blur smoothing
+![alt text][pipeline1]
+
+**Step 2: Apply Gaussian blur smoothing**
+
+![alt text][pipeline2]
 
 Step 3: Apply Canny edge detection
 
