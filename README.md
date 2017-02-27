@@ -38,13 +38,19 @@ My pipeline consisted of 5 steps:
 
 **Step 2: Apply Gaussian blur smoothing**
 
+I use kernel size of 5, which provides a soft smoothing
+
 ![alt text][pipeline2]
 
 **Step 3: Apply Canny edge detection**
 
+I use low threshold of 70 and high treshold of 150. To be honest these numbers I got it by trial and error, and the optimization was done by manually eyeballing the image result
+
 ![alt text][pipeline3]
 
 **Step 4: Apply region of interest (ROI)**
+
+Here I use the region of interest to basically filter out everything except the region where we expect the two lanes will be. This method does have its limitation; it will work on the test images & videos in this project, but there are a lot other scenarios where it will fail to properly isolate the correct lane lines area.
 
 ![alt text][pipeline4]
 
@@ -54,13 +60,37 @@ My pipeline allows two different line drawing options at this stage:
 
 i) Draw lines according to the lane markers - short, long, single, or multiple
 
-This path execute the original algorithm of the draw_lines() function, no additional change required
+This path execute the original algorithm of the draw_lines() function, no additional change was done
 
 ![alt text][pipeline5a]
 
 ii) Draw a single line on the left and right lanes
 
-SFirst, I converted the images to grayscale, then I .... 
+In order to get the long lines that are smooth a few processing steps are required:
+
+Step1: Sum up the left & right lines
+
+Step2: Get average of left & right line
+
+Step3: Extrapolate the left & right line
+
+a) Create line equation
+Line equation: 
+
+y = slope*x + intercept
+
+From the points we got, we can calculate the slope and intercept as below, we get our line equation:
+
+slope = (y1-y2)/(x1-x2)
+
+intercept = y1 - slope*x1
+
+With the line equation I am able to draw a line whose y endpoints are bottom of image and top of region of interest. I find the x endpoints by plugging in the y endpoints into the equation:
+
+x = (y - b)/m
+
+
+Step4: draw the left & right line and soft overlay effect if required
 
 ![alt text][pipeline5b]
 
