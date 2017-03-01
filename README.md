@@ -50,7 +50,7 @@ I use low threshold of 70 and high treshold of 150. To be honest these numbers I
 
 **Step 4: Apply region of interest (ROI)**
 
-Here I use the region of interest to basically filter out everything except the region where we expect the two lanes will be. This method does have its limitation; it will work on the test images & videos in this project, but there are a lot other scenarios where it will fail to properly isolate the correct lane lines area.
+Here I use the region of interest to basically filter out everything except the region where we expect the two lanes will be. This method does have its limitation; it will work on the test images & videos in this project, but there are a lot other scenarios where it will fail to properly isolate the correct lane lines area. I will elaborate more in section 2 "potential shortcomings"
 
 ![alt text][pipeline4]
 
@@ -58,36 +58,36 @@ Here I use the region of interest to basically filter out everything except the 
 
 My pipeline allows two different line drawing options at this stage:
 
-i) Draw lines according to the lane markers - short, long, single, or multiple
+a) Draw lines according to the lane markers - smultiple short & long markers
 
 This path execute the original algorithm of the draw_lines() function, no additional change was done
 
 ![alt text][pipeline5a]
 
-ii) Draw a single line on the left and right lanes
+b) Draw a single line on the left and right lanes
 
-In order to get the long lines that are smooth a few processing steps are required:
+In order to get the long lines that are smooth a few processing steps were done:
 
-Step1: Sum up the left & right lines
+1. First I sum up the x1, x2, y1, & y2 points of all the left lines. Do the same for the right lines.
+2. Then I divide the summed x1,x2,y1,y2 points by total number of lines (do for boh right & left lines) to get the averaged points.
+3. From the averaged points of the left & right line, I create a line equation for each one of them by following the below math:
 
-Step2: Get average of left & right line
-
-Step3: Extrapolate the left & right line
-
-a) Create line equation
 Line equation: 
-
 y = slope*x + intercept
 
-From the points we got, we can calculate the slope and intercept as below, we get our line equation:
+slope = (averaged_y1-averaged_y2)/(averaged_x1-averaged_x2)
+intercept = averaged_y1 - slope*averaged_x1
 
-slope = (y1-y2)/(x1-x2)
+4. With the line equation I am able to draw a line whose y endpoints are on one end at the bottom of image (539) and on the other end at top of region of interest (317). I find the x endpoints - of both right & left line - by plugging in the y endpoints into the equation:
 
-intercept = y1 - slope*x1
+x = (y - intercept)/slope
+i.e.
+x_bottom = (540 - intercept)/slope 
+x_top = (317 - intercept)/slope 317
 
-With the line equation I am able to draw a line whose y endpoints are bottom of image and top of region of interest. I find the x endpoints by plugging in the y endpoints into the equation:
+Now I get the endpoints to draw the extrapolted single line for both right & left lane
 
-x = (y - b)/m
+5. Finally I draw red lines with thickness of 6 for both lines and apply the weighted_img function on them to get the soft overlay effect.
 
 
 Step4: draw the left & right line and soft overlay effect if required
