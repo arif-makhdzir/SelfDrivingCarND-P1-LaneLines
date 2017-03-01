@@ -1,12 +1,6 @@
 #**Finding Lane Lines on the Road** 
 
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
 ---
-
-**Finding Lane Lines on the Road**
 
 The goals / steps of this project are the following:
 * Make a pipeline that finds lane lines on the road
@@ -25,6 +19,11 @@ The goals / steps of this project are the following:
 [pipeline6a]: ./pipeline_images/step6a_combined.jpg "Combined a pipeline"
 [pipeline6b]: ./pipeline_images/step6b_combined.jpg "Combined b pipeline"
 [annotated0]: ./anotated_images/annotated0.jpg "annotated"
+[annotated1]: ./anotated_images/annotated1.jpg "annotated"
+[annotated2]: ./anotated_images/annotated2.jpg "annotated"
+[annotated3]: ./anotated_images/annotated3.jpg "annotated"
+[annotated4]: ./anotated_images/annotated4.jpg "annotated"
+[annotated5]: ./anotated_images/annotated5.jpg "annotated"
 ---
 
 ### Reflection
@@ -110,7 +109,7 @@ This is simply just the weighted_img of the original image & the hough line imag
 
 Here are the results of my pipeline drawing extrapolated & averaged left & right lane markers for all the 5 test images:
 
-![alt text][annotated0]
+![alt text][annotated0] ![alt text][annotated1] ![alt text][annotated2] ![alt text][annotated3] ![alt text][annotated4] ![alt text][annotated5]
 
 ###2. Identify potential shortcomings with your current pipeline
 
