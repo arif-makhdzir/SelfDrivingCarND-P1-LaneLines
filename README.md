@@ -24,7 +24,7 @@ The goals / steps of this project are the following:
 [pipeline5b]: ./pipeline_images/step5b_hough_straight_lines.jpg "Hough straight lines pipeline"
 [pipeline6a]: ./pipeline_images/step6a_combined.jpg "Combined a pipeline"
 [pipeline6b]: ./pipeline_images/step6b_combined.jpg "Combined b pipeline"
-[annotated0]: ./annotated_images/annotated0.jpg "annotated"
+[annotated0]: ./anotated_images/annotated0.jpg "annotated"
 ---
 
 ### Reflection
