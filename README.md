@@ -113,14 +113,13 @@ Here are the results of my pipeline drawing extrapolated & averaged left & right
 
 ###2. Identify potential shortcomings with your current pipeline
 
+In my opinion there are two major shortcomings in my current pipeline:
 
-One potential shortcoming would be what would happen when ... 
+1. Fixed region of interest (ROI) mask: This method works for the sample images & videos (apart from the challenge) as the roads are all within the fixed region of interest. However in real world situation, even if the camera position is fixed, **the road can go uphill or downhill, and all kinds of other corner cases where the region of interest for the lanes will go out of my ROI bound. When that happens the lane detection will breakdown.**
 
-Another shortcoming could be ...
+2. Lane lines have to be relatively straight: with the way my canny edge and hough transform is configured, **if the lane is a sharp corner, it won't be able to identify properly the lane lines, especially the degree of the turn. So the self-driving car has high probability of missing a sharp corner (and drive into the abyss)!**
 
 
 ###3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
+The
