@@ -24,6 +24,7 @@ The goals / steps of this project are the following:
 [pipeline5b]: ./pipeline_images/step5b_hough_straight_lines.jpg "Hough straight lines pipeline"
 [pipeline6a]: ./pipeline_images/step6a_combined.jpg "Combined a pipeline"
 [pipeline6b]: ./pipeline_images/step6b_combined.jpg "Combined b pipeline"
+[annotated0]: ./annotated_images/annotated0.jpg "annotated"
 ---
 
 ### Reflection
@@ -105,10 +106,11 @@ In order to get the long lines that are smooth a few processing steps were done:
 This is simply just the weighted_img of the original image & the hough line image from step5.
 
 
-a) ![alt text][pipeline6a] b) ![alt text][pipeline6b]
+![alt text][pipeline6a] ![alt text][pipeline6b]
 
 Here are the results of my pipeline drawing extrapolated & averaged left & right lane markers for all the 5 test images:
 
+![alt text][annotated0]
 
 ###2. Identify potential shortcomings with your current pipeline
 
