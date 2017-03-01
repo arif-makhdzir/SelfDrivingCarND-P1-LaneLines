@@ -30,7 +30,7 @@ The goals / steps of this project are the following:
 
 ###1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps:
+My pipeline consisted of 6 steps:
 
 **Step 1: Turn image into grayscale channel**
 
@@ -56,6 +56,13 @@ Here I use the region of interest to basically filter out everything except the 
 
 **Step 5: Apply Hough line** 
 
+Then I apply Hough lines with the following parameters:
+    rho          = 2
+    theta        = np.pi/180
+    threshold    = 20
+    min_line_len = 10
+    max_line_gap = 6
+    
 My pipeline allows two different line drawing options at this stage:
 
 a) Draw lines according to the lane markers - smultiple short & long markers
@@ -66,39 +73,41 @@ This path execute the original algorithm of the draw_lines() function, no additi
 
 b) Draw a single line on the left and right lanes
 
+![alt text][pipeline5b]
+
 In order to get the long lines that are smooth a few processing steps were done:
 
 1. First I sum up the x1, x2, y1, & y2 points of all the left lines. Do the same for the right lines.
 2. Then I divide the summed x1,x2,y1,y2 points by total number of lines (do for boh right & left lines) to get the averaged points.
 3. From the averaged points of the left & right line, I create a line equation for each one of them by following the below math:
 
-Line equation: 
-y = slope*x + intercept
+  Line equation: 
+  y = slope*x + intercept
 
-slope = (averaged_y1-averaged_y2)/(averaged_x1-averaged_x2)
-intercept = averaged_y1 - slope*averaged_x1
+  slope = (averaged_y1-averaged_y2)/(averaged_x1-averaged_x2)</br>
+  intercept = averaged_y1 - slope*averaged_x1
 
 4. With the line equation I am able to draw a line whose y endpoints are on one end at the bottom of image (539) and on the other end at top of region of interest (317). I find the x endpoints - of both right & left line - by plugging in the y endpoints into the equation:
 
-x = (y - intercept)/slope
-i.e.
-x_bottom = (540 - intercept)/slope 
-x_top = (317 - intercept)/slope 317
+  x = (y - intercept)/slope
+  
+  i.e.</br>
+  x_bottom = (540 - intercept)/slope</br> 
+  x_top = (317 - intercept)/slope 317
 
-Now I get the endpoints to draw the extrapolted single line for both right & left lane
+  Now I get the endpoints to draw the extrapolted single line for both right & left lane
 
 5. Finally I draw red lines with thickness of 6 for both lines and apply the weighted_img function on them to get the soft overlay effect.
 
 
-Step4: draw the left & right line and soft overlay effect if required
+**Step 6: Combine input image with final line image**
 
-![alt text][pipeline5b]
+This is simply just the weighted_img of the original image & the hough line image from step5.
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+a) ![alt text][pipeline6a] b) ![alt text][pipeline6b]
 
-![alt text][pipeline6a]![alt text][pipeline6b]
+Here are the results of my pipeline drawing extrapolated & averaged left & right lane markers for all the 5 test images:
 
 
 ###2. Identify potential shortcomings with your current pipeline
