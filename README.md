@@ -77,7 +77,7 @@ b) Draw a single line on the left and right lanes
 
 In order to get the long lines that are smooth a few processing steps were done:
 
-1. First I sum up the x1, x2, y1, & y2 points of all the left lines. Do the same for the right lines.
+1. First I sum up the x1, x2, y1, & y2 points of all the left lines and then do the same for the right lines. Note: I dentify the left lines by finding lines whose slopes are less than -0.4 and the right lines by taking lines whose slopes are more than 0.4. This way I also filter out the outliers with almost horizontal slope.
 2. Then I divide the summed x1,x2,y1,y2 points by total number of lines (do for boh right & left lines) to get the averaged points.
 3. From the averaged points of the left & right line, I create a line equation for each one of them by following the below math:
 
