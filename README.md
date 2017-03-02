@@ -107,6 +107,8 @@ This is simply just the weighted_img of the original image & the hough line imag
 
 ![alt text][pipeline6a] ![alt text][pipeline6b]
 
+**Results**
+
 Here are the results of my pipeline drawing extrapolated & averaged left & right lane markers for all the 5 test images:
 
 ![alt text][annotated0] ![alt text][annotated1] ![alt text][annotated2] ![alt text][annotated3] ![alt text][annotated4] ![alt text][annotated5]
@@ -124,6 +126,6 @@ In my opinion there are two major shortcomings in my current pipeline:
 
 1. Replace the static region of interest mask with a convolution neural network that does dynamic image segmentation to find the region of interest of the lanes. With an image segmentation convnet, the ROI will be dynamic and changing in real-time, thus it can still find the lanes region of interest in all kinds of corner cases, where the road goes steep uphill, downhil, changing lane, sharp corners, etc (providing the convnet has high accuracy).
 
-2. For the Hough Transform, we need something that can detect more than just a pretty straight line as the lanes can turn sharply. I think there are computer vision techniques out there, where you can hand-craft more complex features, so we can also detect bended lanes.
+2. For the Hough Transform, we need something that can detect more than just a pretty straight line as the lanes can turn sharply. I think there are computer vision techniques out there, where you can hand-craft more complex features, so we can also detect bended lanes, while not requiring too much computation power.
 
 
