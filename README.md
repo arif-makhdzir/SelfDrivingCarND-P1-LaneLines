@@ -115,11 +115,15 @@ Here are the results of my pipeline drawing extrapolated & averaged left & right
 
 In my opinion there are two major shortcomings in my current pipeline:
 
-1. Fixed region of interest (ROI) mask: This method works for the sample images & videos (apart from the challenge) as the roads are all within the fixed region of interest. However in real world situation, even if the camera position is fixed, **the road can go uphill or downhill, and all kinds of other corner cases where the region of interest for the lanes will go out of my ROI bound. When that happens the lane detection will breakdown.**
+1. Fixed region of interest (ROI) mask: This method works for the sample images & videos (apart from the challenge) as the roads are all within the fixed region of interest. However in real world situation, even if the camera position is fixed, **the road can go uphill or downhill, car changing lane, and all kinds of other corner cases where the region of interest for the lanes will go out of my ROI bound. When that happens the lane detection will breakdown.**
 
 2. Lane lines have to be relatively straight: with the way my canny edge and hough transform is configured, **if the lane is a sharp corner, it won't be able to identify properly the lane lines, especially the degree of the turn. So the self-driving car has high probability of missing a sharp corner (and drive into the abyss)!**
 
 
 ###3. Suggest possible improvements to your pipeline
 
-The
+1. Replace the static region of interest mask with a convolution neural network that does dynamic image segmentation to find the region of interest of the lanes. With an image segmentation convnet, the ROI will be dynamic and changing in real-time, thus it can still find the lanes region of interest in all kinds of corner cases, where the road goes steep uphill, downhil, changing lane, sharp corners, etc (providing the convnet has high accuracy).
+
+2. For the Hough Transform, we need something that can detect more than just a pretty straight line as the lanes can turn sharply. I think there are computer vision techniques out there, where you can hand-craft more complex features, so we can also detect bended lanes.
+
+
