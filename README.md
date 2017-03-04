@@ -18,12 +18,12 @@ The goals / steps of this project are the following:
 [pipeline5b]: ./pipeline_images/step5b_hough_straight_lines.jpg "Hough straight lines pipeline"
 [pipeline6a]: ./pipeline_images/step6a_combined.jpg "Combined a pipeline"
 [pipeline6b]: ./pipeline_images/step6b_combined.jpg "Combined b pipeline"
-[annotated0]: ./anotated_images/annotated0.jpg "annotated"
-[annotated1]: ./anotated_images/annotated1.jpg "annotated"
-[annotated2]: ./anotated_images/annotated2.jpg "annotated"
-[annotated3]: ./anotated_images/annotated3.jpg "annotated"
-[annotated4]: ./anotated_images/annotated4.jpg "annotated"
-[annotated5]: ./anotated_images/annotated5.jpg "annotated"
+[annotated0]: ./annotated_images/annotated0.jpg "annotated"
+[annotated1]: ./annotated_images/annotated1.jpg "annotated"
+[annotated2]: ./annotated_images/annotated2.jpg "annotated"
+[annotated3]: ./annotated_images/annotated3.jpg "annotated"
+[annotated4]: ./annotated_images/annotated4.jpg "annotated"
+[annotated5]: ./annotated_images/annotated5.jpg "annotated"
 ---
 
 ### Reflection
