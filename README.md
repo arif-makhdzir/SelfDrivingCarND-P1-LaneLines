@@ -34,13 +34,13 @@ My pipeline consisted of 6 steps:
 
 **Step 1: Turn image into grayscale channel**
 
-![alt text][pipeline1]
+<img src="./pipeline_images/step1_gray.jpg" width="480" alt="Combined Image" />
 
 **Step 2: Apply Gaussian blur smoothing**
 
 I use kernel size of 5, which provides a soft smoothing
 
-![alt text][pipeline2]
+<img src="./pipeline_images/step2_gaussian.jpg" width="480" alt="Combined Image" />
 
 **Step 3: Apply Canny edge detection**
 
